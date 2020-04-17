@@ -4,6 +4,8 @@
   "scripts": {
     "production": "ts-node -r dotenv-safe/config --transpile-only src/server.ts",
     "local": "nodemon --exec ts-node -r tsconfig-paths/register -r dotenv-safe/config src/server.ts",
+    "db:up": "docker-compose -f etc/environments/local/docker-compose.yml up -d",
+    "uninstall": "docker-compose -f etc/environments/local/docker-compose.yml down -v",
     "docs": "npx http-server docs/api -p 4123 -o / -c60",
     "test": "jest --runInBand --forceExit --detectOpenHandles",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -12,12 +14,14 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "axios": "^0.19.2",
+    "bson-ext": "^2.0.3",
     "cors": "^2.8.5",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "hpp": "^0.2.3",
     "jest": "^25.1.0",
+    "mongodb": "^3.5.6",
     "ts-jest": "^25.2.1",
     "ts-node": "^8.8.1",
     "typescript": "^3.8.3"
