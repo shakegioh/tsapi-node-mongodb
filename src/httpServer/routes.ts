@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import core from './module/core/router';
-import justAnotherModule from './module/justAnotherModule/router';
+import todo from './module/todo/router';
 
 const routes: Router[] = [
   core,
-  justAnotherModule,
+  todo,
 ];
 
 export default routes;

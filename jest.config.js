@@ -10,6 +10,7 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   'moduleNameMapper': {
+    'database/(.*)': '<rootDir>/src/database/$1',
     'dto/(.*)': '<rootDir>/src/dto/$1',
     'exception/(.*)': '<rootDir>/src/exception/$1',
     'httpServer/(.*)': '<rootDir>/src/httpServer/$1',

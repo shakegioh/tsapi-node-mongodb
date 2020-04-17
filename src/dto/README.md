@@ -4,7 +4,7 @@ Aqui ficam interfaces para os inputs que vem do req.body
 
 Tem que usar a função `ensureDto<TypescriptSchema>(JoiDto, obj)`.
 
-Caso seja um array de Dtos, use assim `ensureDtoArray<TypescriptSchema[]>(JoiDto, obj)`.
+Caso seja um array de Dtos, use assim `ensureDtoArray<TypescriptSchema>(JoiDto, obj)`.
 
 ### Exemplo objeto
 
@@ -33,7 +33,7 @@ const rawArray = [
 let payloadGarantido: NameSchema[] = [];
 
 try {
-  payloadGarantido = ensureDtoArray<NameSchema[]>(NameDto, rawArray);
+  payloadGarantido = ensureDtoArray<NameSchema>(NameDto, rawArray);
 } catch(error) {
   // Tratar erro
 }

@@ -11,5 +11,5 @@ export default function ensureDtoArray<T>(dto: Joi.Schema, objArray: any[]) {
       throw new H400Exception(`${validated.error.message} - index: ${idx}`);
     }
   }
-  return objArray as unknown as T;
+  return objArray as unknown as T[];
 }

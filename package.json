@@ -4,7 +4,7 @@
   "scripts": {
     "production": "ts-node -r dotenv-safe/config --transpile-only src/server.ts",
     "local": "nodemon --exec ts-node -r tsconfig-paths/register -r dotenv-safe/config src/server.ts",
-    "db:up": "docker-compose -f etc/environments/local/docker-compose.yml up -d",
+    "db:up": "docker-compose -f etc/environments/local/docker-compose.yml up --build -d",
     "uninstall": "docker-compose -f etc/environments/local/docker-compose.yml down -v",
     "docs": "npx http-server docs/api -p 4123 -o / -c60",
     "test": "jest --runInBand --forceExit --detectOpenHandles",
@@ -33,6 +33,7 @@
     "@types/helmet": "0.0.45",
     "@types/hpp": "^0.2.1",
     "@types/jest": "^25.1.4",
+    "@types/mongodb": "^3.5.8",
     "@types/node": "^13.9.3",
     "@types/supertest": "^2.0.8",
     "nodemon": "^2.0.2",

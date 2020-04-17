@@ -6,5 +6,5 @@ export default function ensureDto<T>(dto: Joi.Schema, obj: any) {
   if (validated.error) {
     throw new H400Exception(validated.error.message);
   }
-  return obj as T;
+  return validated.value as T;
 }
