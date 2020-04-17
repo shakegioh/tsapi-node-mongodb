@@ -10,6 +10,7 @@ export default async function dbConn(): Promise<Db> {
 
   try {
     mongoClient = await MongoClient.connect(url);
+    console.log('[dbConn] Database ', mongoClient.isConnected ? 'Connected!' : 'NOT CONNECTED!!!');
     return getDatabase();
   } catch (error) {
     // @TODO ~ That's up to you fella

@@ -5,6 +5,7 @@ import * as express from 'express';
 import * as http from 'http';
 import errorMiddleware from './middleware/error.middleware';
 import allRoutes from './routes';
+import onServerReady from 'util/onServerReady';
 
 export default class HTTPServer {
   public app: express.Application;
@@ -27,8 +28,9 @@ export default class HTTPServer {
   }
 
   public listen(callback?: () => void) {
-    this.server.listen(this.port, () => {
+    this.server.listen(this.port, async () => {
       console.log(`🚀 App listening on the port ${this.port}`);
+      await onServerReady();
       if (callback) callback();
     });
   }

@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { Request, Response, NextFunction } from 'express';
 import ensureDto from 'util/ensureDto';
-import { DbCollection } from 'database/database-types';
+import { DbCollection } from 'database/common/databaseTypes';
 import dbCreateDto from 'database/common/dbCreateDto';
 import { TodoSchema, TodoCreateSchema, TodoCreateDto } from 'dto/Todo.dto';
 import dbFindMany from 'database/common/dbFindMany';
