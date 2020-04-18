@@ -6,6 +6,7 @@ import * as http from 'http';
 import errorMiddleware from './middleware/error.middleware';
 import allRoutes from './routes';
 import onServerReady from 'util/onServerReady';
+import logger from 'util/logger';
 
 export default class HTTPServer {
   public app: express.Application;
@@ -29,7 +30,8 @@ export default class HTTPServer {
 
   public listen(callback?: () => void) {
     this.server.listen(this.port, async () => {
-      console.log(`🚀 App listening on the port ${this.port}`);
+      // console.log(`🚀 App listening on the port ${this.port}`);
+      logger.info('🚀 App listening on the port', this.port);
 
       // Essa util foi criada para não precisar mexer aqui nesse arquivo
       // Assim esse arquivo fica fácil de ler e a lógica associada ao

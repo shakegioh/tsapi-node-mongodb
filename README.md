@@ -28,4 +28,7 @@ Contribuições são bem vindas!
 
 - Ao rodar o docker localmente, dá problema para conectar no banco de dados, pois o container ainda não foi iniciado, tem que ter uma forma de esperar até o banco subir antes de tentar conectar, algo tipo "wait-for-it".
 - Criar build para produção
-- Adicionar log4js com logs para Elasticsearch (ativados / desativados por environment variables)
+
+- WIP: O logstash não está sendo encontrado, pois está com host = localhost, preciso conectar com a rede do elasticsearch
+
+- Criar um cli para instalar e configurar o elasticsearch de forma fácil

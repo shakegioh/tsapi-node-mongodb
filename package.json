@@ -2,7 +2,7 @@
   "name": "node-typescript-api-boilerplate",
   "version": "0.0.0",
   "scripts": {
-    "local": "docker-compose -f etc/environments/local/docker-compose.yml up --build -d",
+    "local": "docker-compose -f etc/environments/local/docker-compose.yml up -d",
     "logs": "docker-compose -f etc/environments/local/docker-compose.yml logs -f server",
     "docker:ps": "docker-compose -f etc/environments/local/docker-compose.yml ps",
     "local:uninstall": "docker-compose -f etc/environments/local/docker-compose.yml down -v",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "@log4js-node/logstashudp": "^1.2.1",
     "axios": "^0.19.2",
     "bson-ext": "^2.0.3",
     "cors": "^2.8.5",
@@ -21,6 +22,7 @@
     "helmet": "^3.22.0",
     "hpp": "^0.2.3",
     "jest": "^25.1.0",
+    "log4js": "^6.2.0",
     "mongodb": "^3.5.6",
     "ts-jest": "^25.2.1",
     "ts-node": "^8.8.1",
