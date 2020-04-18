@@ -30,13 +30,24 @@ export default class HTTPServer {
   public listen(callback?: () => void) {
     this.server.listen(this.port, async () => {
       console.log(`🚀 App listening on the port ${this.port}`);
-      await onServerReady();
+
+      // Essa util foi criada para não precisar mexer aqui nesse arquivo
+      // Assim esse arquivo fica fácil de ler e a lógica associada ao
+      // startup do aplicativo fica separado
+      if (process.env.ENABLE_UTIL_ON_SERVER_READY === 'yes') {
+        await onServerReady();
+      }
+
       if (callback) callback();
     });
   }
 
   private initializeMiddlewares() {
     this.app.use(cors());
+
+    // @TODO ~ Ajustar essas regras de cors
+    // Por enquanto tudo bem, mas quando o projeto for subir para
+    // produção, é bom que não fique tão aberto à requisições
 
     if (this.isProduction) {
       this.app.use(hpp());
