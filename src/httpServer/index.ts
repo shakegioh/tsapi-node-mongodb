@@ -30,7 +30,6 @@ export default class HTTPServer {
 
   public listen(callback?: () => void) {
     this.server.listen(this.port, async () => {
-      // console.log(`🚀 App listening on the port ${this.port}`);
       logger.info('🚀 App listening on the port', this.port);
 
       // Essa util foi criada para não precisar mexer aqui nesse arquivo
