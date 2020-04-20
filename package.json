@@ -4,7 +4,9 @@
   "scripts": {
     "local": "docker-compose -f etc/environments/local/docker-compose.yml up -d",
     "logs": "docker-compose -f etc/environments/local/docker-compose.yml logs -f server",
+    "docker": "docker-compose -f etc/environments/local/docker-compose.yml",
     "docker:ps": "docker-compose -f etc/environments/local/docker-compose.yml ps",
+    "docker:logs": "docker-compose -f etc/environments/local/docker-compose.yml logs",
     "local:uninstall": "docker-compose -f etc/environments/local/docker-compose.yml down -v",
     "docs": "npx http-server docs/api -p 4123 -o / -c60",
     "test": "jest --runInBand --forceExit --detectOpenHandles",

@@ -10,6 +10,9 @@ services:
       - ${PORT}:${PORT}
     volumes:
       - ../../../src:/app/src
+    networks:
+      - tsapi
+      - elk
 
   tsapi-mongodb:
     image: "mongo"
@@ -19,7 +22,9 @@ services:
     logging:
       driver: none
     volumes:
-     - ./volumes/db:/data/db
+      - ./volumes/db:/data/db
+    networks:
+      - tsapi
 
   mongo-express:
     image: mongo-express
@@ -28,5 +33,19 @@ services:
       - ${MONGODB_GUI_PORT}:8081
     environment:
       ME_CONFIG_MONGODB_SERVER: tsapi-mongodb
+      ME_CONFIG_MONGODB_PORT: ${MONGODB_PORT}
       # ME_CONFIG_MONGODB_ADMINUSERNAME: root
       # ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    networks:
+      - tsapi
+
+networks:
+  tsapi:
+  
+  # Se você tá tentando conectar com o Logstash, e se o logstash/elasticsearch
+  # foi instalado em um docker-compose, é necessário CRIAR UMA REDE EXTERNA
+  # e conectar o logstash + este docker-compose na mesma rede
+  # Para mais informações @TODO ~ colocar mais informações aqui
+  elk:
+    external:
+      name: elk

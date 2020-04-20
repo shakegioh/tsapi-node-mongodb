@@ -33,8 +33,8 @@ log4js.configure({
        */
       extraDataProvider: (loggingEvent: any) => ({
         NODE_ENV: process.env.NODE_ENV || 'unknown',
+        application: process.env.LOGGER_APPLICATION_NAME,    // <- Boas práticas
         pid: loggingEvent.pid,    // <- Campo especial, ele sempre existe
-        application: 'tsapi',    // <- Boas práticas
         fields: loggingEvent.data[1],    // <- Padronizar assim é bom
       }),
       // @END EXTRA_DATA_PROVIDER

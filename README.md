@@ -31,4 +31,4 @@ Contribuições são bem vindas!
 
 - WIP: O logstash não está sendo encontrado, pois está com host = localhost, preciso conectar com a rede do elasticsearch
 
-- Criar um cli para instalar e configurar o elasticsearch de forma fácil
+- Criar um cli para instalar e configurar o elasticsearch de forma fácil usando [este repositório](https://github.com/microenv/development-elastic-stack)
